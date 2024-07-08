@@ -20,7 +20,7 @@ public class TagsSteps extends BaseSteps {
     @When("User send GET tags of {}")
         public void getTags(final String id) {
         if (id.equals("valid_space")){
-            final Response getTagsResponse = tagsRestClient.getTags("90152401675");
+            final Response getTagsResponse = tagsRestClient.getTags("90152681230");
             sharedTestData.setResponse(getTagsResponse);
         } else if (id.equals("not_valid_space")){
             final Response getTagsResponse = tagsRestClient.getTags("11111111111");

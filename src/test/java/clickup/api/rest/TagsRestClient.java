@@ -21,11 +21,11 @@ public TagsRestClient() {
     public Response createTag(JSONObject body) {
         return requestSpec.given()
                 .body(body.toString())
-                .post("/space/90152401675/tag/");
+                .post("/space/90152681230/tag/");
     }
 
     public Response deleteTag() {
         return requestSpec.given()
-                .delete("/space/90152401675/tag/test_tag");
+                .delete("/space/90152681230/tag/test_tag");
     }
 }
