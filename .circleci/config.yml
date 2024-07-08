@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  java-job:
+    docker:
+      - image: circleci/openjdk:17.0.1-buster
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - run:
+          name: Run Tests
+          command: mvn clean install && mvn failsafe:integration-test -Dcucumber.filter.tags="@homework"
+      - run:
+          name: GENERATE REPORT
+          command: mvn serenity:aggregate
+      - store_artifacts:
+          path: ./target/site
+          destination: java-artifacts
+
+workflows:
+  build-and-test:
+    jobs:
+      - java-job
