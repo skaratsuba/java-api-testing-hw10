@@ -14,7 +14,8 @@ public abstract class BaseRestClient {
 protected RequestSpecification requestSpec;
     public void setUpRestAssured() {
         String token = dotenv.get("TOKEN", System.getenv("TOKEN") != null ? System.getenv("TOKEN") : "defaultTokenValue");
-        String baseUrl = dotenv.get("BASE_URL", System.getenv("BASE_URL") != null ? System.getenv("BASE_URL") : "BASE_URL");
+//        String baseUrl = dotenv.get("BASE_URL", System.getenv("BASE_URL") != null ? System.getenv("BASE_URL") : "BASE_URL");
+        String baseUrl = "https://api.clickup.com/api/v2";
         JSONObject body = new JSONObject();
         System.out.println(baseUrl);
         this.requestSpec = SerenityRest.given()
